@@ -114,7 +114,7 @@ resource "aws_eks_addon" "ebs-csi" {
 
 resource "aws_db_subnet_group" "custompcbuilder" {
   name       = "custompcbuilder"
-  subnet_ids = module.vpc.private_subnets
+  subnet_ids = module.vpc.public_subnets
 
   tags = {
     Name = "custompcbuilder"
@@ -132,7 +132,7 @@ resource "aws_db_instance" "custompcbuilder" {
   db_subnet_group_name   = aws_db_subnet_group.custompcbuilder.name
   vpc_security_group_ids = [aws_security_group.rds.id]
   parameter_group_name   = aws_db_parameter_group.custompcbuilder.name
-  publicly_accessible    = false
+  publicly_accessible    = true
   skip_final_snapshot    = true
 }
 

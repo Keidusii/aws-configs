@@ -16,7 +16,7 @@ variable "secret_key" {
   sensitive   = true
 }
 
-variable "cluser_name" {
+variable "cluster_name" {
   description = "Name for EKS cluster"
   type        = string
   sensitive   = true

@@ -16,6 +16,7 @@ output "region" {
 output "cluster_name" {
   description = "Kubernetes Cluster Name"
   value       = module.eks.cluster_name
+  sensitive   = true
 }
 
 output "rds_hostname" {
